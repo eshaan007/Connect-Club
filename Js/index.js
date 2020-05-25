@@ -78,3 +78,86 @@ class Check{
 	}
 	
 }
+
+let SignUpCheck = () => {
+	
+	let formS = document.getElementById('signup');
+	document.getElementById('name').name = "Name";
+	document.getElementById('email').name = "Email";
+	document.getElementById('password1').name = "Pass1";
+	document.getElementById('password2').name = "Pass2";
+	document.getElementById('gender').name = "Gender";
+	let check_data = new Check();
+	let error = document.getElementById('SignUpError');
+	let email1 = "";
+	let name = formS.Name.value;
+	let email = formS.Email.value;
+	let pass = formS.Pass1.value;
+	let passCon = formS.Pass2.value;
+	let gender = formS.Gender.value;
+
+	if(name == "" || email == "" || pass == "" || passCon == "" || gender == ""){
+		alert("Please enter every details");
+		error.innerHTML = "Please enter every details";
+		return false;
+	}
+	
+	if(name.length <= 4) {
+		alert("Please enter your full name");
+		error.innerHTML = "Please enter your full name";
+		return false;
+	}
+	
+	try{
+		if(!check_data.emailCheck(email, error)){
+			
+			return false;
+			
+		}
+	
+		if(check_data.check(email)){
+			alert("Please enter valid email");
+			error.innerHTML = "Please enter valid email";
+			return false;
+		}
+		
+		if(check_data.check(name)){
+			alert("Please enter valid name");
+			error.innerHTML = "Please enter valid email";
+			return false;
+		}
+		
+		if(check_data.check(pass)){
+			alert("Please enter valid password");
+				error.innerHTML = "Please enter valid email";
+			return false;
+		}
+		
+		if(check_data.check(passCon)){
+			alert("Please enter valid password");
+			error.innerHTML = "Please enter valid email";
+			return false;
+		}
+	}
+	catch(err){
+			alert("There is a problem: "+err);
+		return;
+	}
+	
+	if(pass.length <= 5){
+		alert("password must be more than 5 letters");
+		error.innerHTML = "password must be more than 5 letters";
+		return false;
+	}
+	
+	if(pass !== passCon){
+		alert("Both passwords do not match");
+		error.innerHTML = "Both passwords do not match";
+		return false;
+	}
+
+	alert("Js check is done");
+
+}
+	
+	
