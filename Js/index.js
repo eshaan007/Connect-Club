@@ -22,7 +22,7 @@ class Check{
 		if(Name.includes("$") || Name.includes("&") || Name.includes("=") || Name.includes("*") || Name.includes("`")){
 			return true;
 		}
-		
+		return false;		
 	}
 	
 	emailCheck(email, cont_msg) {
