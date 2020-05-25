@@ -67,7 +67,7 @@ class Check{
 				return false;
 			}
 			
-			return true;
+			return false;
 		}
 		else
 		{
