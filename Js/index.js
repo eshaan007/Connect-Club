@@ -66,6 +66,8 @@ class Check{
 				document.getElementById('email').focus();
 				return false;
 			}
+			
+			return true;
 		}
 		else
 		{
