@@ -1,5 +1,5 @@
 # Connect-Club
-An *online platform* to connect yourself with other classmates. :wave:
+An *online platform* to connect with other classmates. :wave:
 
 It is made using PHP, MySQL, Ajax, HTML, CSS, and JavaScript. :zap:
 
