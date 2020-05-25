@@ -1,0 +1,36 @@
+html {
+  scroll-behavior: smooth;
+  
+}
+body{
+    font-family: 'Literata', serif;
+}
+#left1
+{
+	transition-duration:0.4s;
+	transform:scale(1.1,1.1);
+}
+#right2
+{
+	transition-duration:0.4s;
+	transform:scale(1.1,1.1);
+}
+	
+.kel-button{
+	border:2px solid white;
+	color:white;
+	transition-duration:0.2s;
+}
+.kel-button:hover{
+	border:2px solid white;
+	transform:scale(1.08, 1.08);
+	cursor:pointer;
+}
+.kel-heading{
+	margin-top:50px;
+	font-weight:800;
+	font-size:40px;
+}
+.kel-heading:hover{
+	cursor:pointer;
+}
