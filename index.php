@@ -65,7 +65,7 @@
 			<div class="w3-padding-64 w3-left w3-margin-left">
 			  <h1>New one?</h1>
 			  <h4>Nice to see you...</h4>
-			  <p>An online platform to connect with other classmates. Click the button below to register for free.</p>
+			  <p>ConnectClub is an online platform to connect with other classmates. Click the button below to register for free.</p>
 			   <div class="w3-center w3-padding-large">
 				<button class="kel-button w3-margin-top w3-green w3-round w3-large w3-padding" onclick = "OpenSignIn()">
 					Register
@@ -84,8 +84,8 @@
 		<div class="w3-half w3-green w3-container w3-animate-right" style="height:500px;" id="left2">
 		<div class="w3-padding-64 w3-left w3-margin-left">
 			<h1>Already registered?</h1>
-			<h4>Nice to see you...</h4>
-			<p>An online platform to connect with other classmates. Click the button below to log in.</p>
+			<h4>Welcome back...</h4>
+			<p>ConnectClub is an online platform to connect with other classmates. Click the button below to log in.</p>
 			<div class="w3-center w3-padding-large">
 			<button class="kel-button w3-margin-top w3-green w3-round w3-large w3-padding" onclick="OpenLogIn()">
 				Login
@@ -121,9 +121,9 @@
 				<select class="w3-select w3-round-xxlarge w3-border" id="gender" required>
 					<span class="w3-animate-top">
 					<option value=""  disabled selected required>Gender</option>
-					<option value="M">Male</option>
-					<option value="F">Female</option>
-					<option value="O">Other</option>
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>
+					<option value="Other">Other</option>
 					</span>
 				</select>
 			</div>
