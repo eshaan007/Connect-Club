@@ -29,7 +29,7 @@
 <!-- First Grid: Logo & About -->
 	
 	<div class="w3-row w3-center kel-heading" style="">
-		KeltaEdutech 
+		Connect-Chat 
 	</div>
 	<div class="w3-row" style="margin-top:50px;">
 	
@@ -65,10 +65,10 @@
 			<div class="w3-padding-64 w3-left w3-margin-left">
 			  <h1>New one?</h1>
 			  <h4>Nice to see you...</h4>
-			  <p>KeltaEdutech is a totally secure, simple and cool environment for students to study. We are glad to see you here. Click the below button to registerfor free.</p>
+			  <p>An online platform to connect with other classmates. Click the button below to register for free.</p>
 			   <div class="w3-center w3-padding-large">
 				<button class="kel-button w3-margin-top w3-green w3-round w3-large w3-padding" onclick = "OpenSignIn()">
-					Free regestration
+					Register
 				</button>
 				</div>
 			</div>
@@ -84,11 +84,11 @@
 		<div class="w3-half w3-green w3-container w3-animate-right" style="height:500px;" id="left2">
 		<div class="w3-padding-64 w3-left w3-margin-left">
 			<h1>Already registered?</h1>
-			<h4>nice to see you...</h4>
-			<p>KeltaEdutech is a totally secure, simple and cool environment for students to study. We are glad to see you here. Click the below button to log in.</p>
+			<h4>Nice to see you...</h4>
+			<p>An online platform to connect with other classmates. Click the button below to log in.</p>
 			<div class="w3-center w3-padding-large">
 			<button class="kel-button w3-margin-top w3-green w3-round w3-large w3-padding" onclick="OpenLogIn()">
-				LogIn
+				Login
 			</button>
 			</div>
 		</div>
@@ -98,7 +98,7 @@
 	  
 		<div class="w3-half w3-light-gray w3-container w3-center w3-animate-left" style="height:500px;" id="right2">
 			<div class="w3-padding">
-			<div class="w3-xlarge w3-bold w3-margin-top">Fill the below form</div>
+			<div class="w3-xlarge w3-bold w3-margin-top">Fill the following form</div>
 			<form class="w3-container w3-center w3-margin" id="signup">
 			<center>
 			<div class="w3-text-red" id="SignUpError"></div>
@@ -120,9 +120,9 @@
 			<div class="w3-section">
 				<select class="w3-select w3-round-xxlarge w3-border" id="gender" required>
 					<span class="w3-animate-top">
-					<option value=""  disabled selected required>gender</option>
-					<option value="M">male</option>
-					<option value="F">female</option>
+					<option value=""  disabled selected required>Gender</option>
+					<option value="M">Male</option>
+					<option value="F">Female</option>
 					<option value="O">Other</option>
 					</span>
 				</select>
