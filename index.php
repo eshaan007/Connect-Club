@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ConnectClass | Connect everyone for free</title>
+		<title>ConnectClub | Connect everyone for free</title>
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel="stylesheet" href="CSS/ek.css">
 		<link href="https://fonts.googleapis.com/css2?family=Literata&display=swap" rel="stylesheet"> 
@@ -29,7 +29,7 @@
 <!-- First Grid: Logo & About -->
 	
 	<div class="w3-row w3-center kel-heading" style="">
-		Connect-Chat 
+		Connect-Club 
 	</div>
 	<div class="w3-row" style="margin-top:50px;">
 	
