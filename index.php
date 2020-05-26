@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ConnectClass | Connect entire class for any discussion for free</title>
+		<title>ConnectClass | Connect everyone for free</title>
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel="stylesheet" href="CSS/ek.css">
 		<link href="https://fonts.googleapis.com/css2?family=Literata&display=swap" rel="stylesheet"> 
