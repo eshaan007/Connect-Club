@@ -99,6 +99,35 @@ let loginCheck = () => {
 	    return;
 		    
 	}
+	if(eu.includes("@")){
+	    if(check_data.emailCheck(eu, error)){
+		        
+	        let str = "Pass="+pass+"&Email="+eu;
+            	let xhttp = new XMLHttpRequest();
+            	let loader = document.getElementById('loginloader');
+            	xhttp.onreadystatechange = function() {
+            		loader.style.display = "block";
+            		if(this.readyState == 4 && this.status == 200){
+            			error.innerHTML = this.responseText;
+            			loader.style.display = "none";
+            			if(this.responseText == ""){
+            			    
+            			    formL.action = "login";
+            				formL.method = "post";
+           				formL.submit();
+            				
+            			}
+            		}
+        	}
+        	xhttp.open("POST", "Check/loginEmailCheck", true);
+        	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        	xhttp.send(str);
+		        
+	    }
+	    else{
+	        return false;
+	    }
+	}
 }
 
 let SignUpCheck = () => {
