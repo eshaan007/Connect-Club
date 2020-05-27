@@ -59,7 +59,8 @@ if(isset($_SESSION['signup_login'])){
                 $i++;
                 
             }
-        $query1 = "INSERT INTO users (u_name, real_name, email, u_password, vkey, verified, gender, theme) VALUES( '$u_name','$name', '$email', '$password', '$vkey', '0','$gender', '$theme')";
+            
+            $query1 = "INSERT INTO users (u_name, real_name, email, u_password, vkey, verified, gender, theme) VALUES( '$u_name','$name', '$email', '$password', '$vkey', '0','$gender', '$theme')";
             
             if($conn->query($query1)){
                 $_SESSION['signup_r'] = "yes";
@@ -82,11 +83,8 @@ if(isset($_SESSION['signup_login'])){
                 $message .= '</body></html>';
                 
                 mail($email,$subject,$message,$headers);
+                
             }
-            else{
-                echo "Something went wrong"; 
-            }
-        }
             else{
                 echo "Something went wrong"; 
             }
