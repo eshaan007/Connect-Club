@@ -1,63 +1,73 @@
-function OpenLogIn()
-{
-	document.getElementById("layer2").style.display = "none";
-	document.getElementById("layer1").style.display = "block";
-	
-}
 
-function OpenSignIn()
-{
-	document.getElementById("layer2").style.display = "block";
-	document.getElementById("layer1").style.display = "none";
-}
-//usefull things
-class Check{
-	
-	check(Name){
+	function OpenLogIn()
+	{
+		document.getElementById("layer2").style.display = "none";
+		document.getElementById("layer1").style.display = "block";
 		
-		if(Name == ""){
-			throw "Name is empty";
-		}
-		
-		if(Name.includes("$") || Name.includes("&") || Name.includes("=") || Name.includes("*") || Name.includes("`")){
-			return true;
-		}
-		return false;		
 	}
 	
-	emailCheck(email, cont_msg) {
+	function OpenSignIn()
+	{
+		document.getElementById("layer2").style.display = "block";
+		document.getElementById("layer1").style.display = "none";
+	}
+	
+	//usefull things
+	class Check{
 		
-		if(email == ""){
-			throw "Name is empty";
+		check(Name){
+			
+			if(Name == ""){
+				throw "Name is empty";
+			}
+			
+			if(Name.includes("$") || Name.includes("&") || Name.includes("=") || Name.includes("*") || Name.includes("`")){
+				return true;
+			}
+			
 		}
 		
-		if(cont_msg == ""){
-			throw "data is empty";
-		}
-		
-		let s1 = email.split("@");
-		let s3 = email.split(" ");
-		if(s3.length > 1)
-		{
-			alert("Please add a proper mail-Id");
-			cont_msg.innerHTML = "Please add a proper mail-Id";
-			return false;
-		}
-		if(s1.length == 2)
-		{
-			var s2 = s1[1].split(".");
-			if(s2.length == 2 || s2.length == 3)
+		emailCheck(email, cont_msg) {
+			
+			if(email == ""){
+				throw "Name is empty";
+			}
+			
+			if(cont_msg == ""){
+				throw "data is empty";
+			}
+			
+			let s1 = email.split("@");
+			let s3 = email.split(" ");
+			if(s3.length > 1)
 			{
-				if(s1[0].length < 6 || s2[0].length < 4 || s2[1].length > 4 || s2[1].length < 2)
+				alert("Please add a proper mail-Id");
+				cont_msg.innerHTML = "Please add a proper mail-Id";
+				return false;
+			}
+			if(s1.length == 2)
+			{
+				var s2 = s1[1].split(".");
+				if(s2.length == 2 || s2.length == 3)
 				{
-					alert('Please add a proper mail-Id');
+					if(s1[0].length < 6 || s2[0].length < 4 || s2[1].length > 4 || s2[1].length < 2)
+					{
+						alert('Please add a proper mail-Id');
+						cont_msg.innerHTML = "Please add a proper mail-Id";
+						document.getElementById('email').focus();
+						return false;
+					}
+					
+					return true;
+					
+				}
+				else
+				{
+					alert("Please add a proper mail-Id");
 					cont_msg.innerHTML = "Please add a proper mail-Id";
 					document.getElementById('email').focus();
 					return false;
 				}
-				
-				return true;
-				
 			}
 			else
 			{
@@ -66,45 +76,35 @@ class Check{
 				document.getElementById('email').focus();
 				return false;
 			}
-			
-			return false;
+				
 		}
-		else
-		{
-			alert("Please add a proper mail-Id");
-			cont_msg.innerHTML = "Please add a proper mail-Id";
-			document.getElementById('email').focus();
-			return false;
-		}
-			
-	}
-	
-}
-
-let loginCheck = () => {
-	    
-    let formL = document.getElementById('login');
-	document.getElementById('eu').name = "Eu";
-	document.getElementById('password').name = "Password";
-	
-	let eu = formL.Eu.value;
-	let pass = formL.Password.value;
-	let error = document.getElementById('loginerror');
 		
-	let check_data = new Check();
-	if(check_data.check(eu) || check_data.check(pass)){
-		    
-	    alert("Please add correct details");
-	    error.innerHTML = "Please add correct details";
-	    return;
-		    
 	}
 	
-	//email login
-	if(eu.includes("@")){
-	    if(check_data.emailCheck(eu, error)){
+	let loginCheck = () => {
+	    
+	    let formL = document.getElementById('login');
+		document.getElementById('eu').name = "Eu";
+		document.getElementById('password').name = "Password";
+		
+		let eu = formL.Eu.value;
+		let pass = formL.Password.value;
+		let error = document.getElementById('loginerror');
+		
+		let check_data = new Check();
+		if(check_data.check(eu) || check_data.check(pass)){
+		    
+		    alert("Please add correct details");
+		    error.innerHTML = "Please add correct details";
+		    return;
+		    
+		}
+		
+		//email login
+		if(eu.includes("@")){
+		    if(check_data.emailCheck(eu, error)){
 		        
-	        let str = "Pass="+pass+"&Email="+eu;
+		        let str = "Pass="+pass+"&Email="+eu;
             	let xhttp = new XMLHttpRequest();
             	let loader = document.getElementById('loginloader');
             	xhttp.onreadystatechange = function() {
@@ -116,22 +116,23 @@ let loginCheck = () => {
             			    
             			    formL.action = "login";
             				formL.method = "post";
-           				formL.submit();
+            				formL.submit();
             				
             			}
             		}
-        	}
-        	xhttp.open("POST", "Check/loginEmailCheck", true);
-        	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        	xhttp.send(str);
+        		}
+        		xhttp.open("POST", "Check/loginEmailCheck", true);
+        		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        		xhttp.send(str);
 		        
-	    }
-	    else{
-	        return false;
-	    }
-	}
-	//username check
-	else{
+		    }
+		    else{
+		        return false;
+		    }
+		    
+		}
+		//username login
+		else{
 		    
 		    let str = "Pass="+pass+"&Uname="+eu;
             let xhttp = new XMLHttpRequest();
@@ -155,87 +156,106 @@ let loginCheck = () => {
         	xhttp.send(str);
 		    
 		}
-}
-
-let SignUpCheck = () => {
-	
-	let formS = document.getElementById('signup');
-	document.getElementById('name').name = "Name";
-	document.getElementById('email').name = "Email";
-	document.getElementById('password1').name = "Pass1";
-	document.getElementById('password2').name = "Pass2";
-	document.getElementById('gender').name = "Gender";
-	let check_data = new Check();
-	let error = document.getElementById('SignUpError');
-	let email1 = "";
-	let name = formS.Name.value;
-	let email = formS.Email.value;
-	let pass = formS.Pass1.value;
-	let passCon = formS.Pass2.value;
-	let gender = formS.Gender.value;
-
-	if(name == "" || email == "" || pass == "" || passCon == "" || gender == ""){
-		alert("Please enter every details");
-		error.innerHTML = "Please enter every details";
-		return false;
+	    
 	}
 	
-	if(name.length <= 4) {
-		alert("Please enter your full name");
-		error.innerHTML = "Please enter your full name";
-		return false;
-	}
+	let SignUpCheck = () => {
+		
+		let formS = document.getElementById('signup');
+		document.getElementById('name').name = "Name";
+		document.getElementById('email').name = "Email";
+		document.getElementById('password1').name = "Pass1";
+		document.getElementById('password2').name = "Pass2";
+		document.getElementById('gender').name = "Gender";
+		let check_data = new Check();
+		let error = document.getElementById('SignUpError');
+		let name = formS.Name.value;
+		let email = formS.Email.value;
+		let pass = formS.Pass1.value;
+		let passCon = formS.Pass2.value;
+		let gender = formS.Gender.value;
 	
-	try{
-		if(!check_data.emailCheck(email, error)){
-			
-			return false;
-			
-		}
-	
-		if(check_data.check(email)){
-			alert("Please enter valid email");
-			error.innerHTML = "Please enter valid email";
+		if(name == "" || email == "" || pass == "" || passCon == "" || gender == ""){
+			alert("Please enter every details");
+			error.innerHTML = "Please enter every details";
 			return false;
 		}
 		
-		if(check_data.check(name)){
-			alert("Please enter valid name");
-			error.innerHTML = "Please enter valid email";
+		if(name.length <= 4) {
+			alert("Please enter your full name");
+			error.innerHTML = "Please enter your full name";
 			return false;
 		}
 		
-		if(check_data.check(pass)){
-			alert("Please enter valid password");
+		try{
+			if(!check_data.emailCheck(email, error)){
+				
+				return false;
+				
+			}
+		
+			if(check_data.check(email)){
+				alert("Please enter valid email");
 				error.innerHTML = "Please enter valid email";
+				return false;
+			}
+			
+			if(check_data.check(name)){
+				alert("Please enter valid name");
+				error.innerHTML = "Please enter valid email";
+				return false;
+			}
+			
+			if(check_data.check(pass)){
+				alert("Please enter valid password");
+				error.innerHTML = "Please enter valid email";
+				return false;
+			}
+			
+			if(check_data.check(passCon)){
+				alert("Please enter valid password");
+				error.innerHTML = "Please enter valid email";
+				return false;
+			}
+		}
+		catch(err){
+			alert("There is a problem: "+err);
+			return;
+		}
+		
+		if(pass.length <= 5){
+			alert("password must be more than 5 letters");
+			error.innerHTML = "password must be more than 5 letters";
 			return false;
 		}
 		
-		if(check_data.check(passCon)){
-			alert("Please enter valid password");
-			error.innerHTML = "Please enter valid email";
+		if(pass !== passCon){
+			alert("Both passwords do not match");
+			error.innerHTML = "Both passwords do not match";
 			return false;
 		}
-	}
-	catch(err){
-			alert("There is a problem: "+err);
-		return;
-	}
 	
-	if(pass.length <= 5){
-		alert("password must be more than 5 letters");
-		error.innerHTML = "password must be more than 5 letters";
-		return false;
-	}
+		let str = "Name="+name+"&Email="+email+"&Pass="+pass+"&Gender="+gender;
+    	let xhttp = new XMLHttpRequest();
+    	let loader = document.getElementById('loaderSignUp');
+    		xhttp.onreadystatechange = function() {
+    			loader.style.display = "block";
+    			if(this.readyState == 4 && this.status == 200){
+    				error.innerHTML = this.responseText;
+    				loader.style.display = "none";
+    				if(this.responseText == ""){
+    				    
+    				    formS.action = "logins";
+    					formS.method = "post";
+    					formS.submit();
+    					
+    				}
+    			}
+		    }
+		xhttp.open("POST", "Check/userCheck", true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send(str);
 	
-	if(pass !== passCon){
-		alert("Both passwords do not match");
-		error.innerHTML = "Both passwords do not match";
-		return false;
 	}
-
-	alert("Js check is done");
-
-}
 	
 	
