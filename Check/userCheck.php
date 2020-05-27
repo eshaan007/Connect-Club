@@ -86,5 +86,26 @@ if(isset($_SESSION['signup_login'])){
             else{
                 echo "Something went wrong"; 
             }
+        }
+            else{
+                echo "Something went wrong"; 
+            }
+            
+        }
+        else{
+            echo "This email address is already registered";
+        }
+        
+    }
+    else{
+        echo "Something went wrong";
+    }
+    
+    $conn->close();
+
+}
+else{
+    echo "Signup first";
+}
 
 ?>
