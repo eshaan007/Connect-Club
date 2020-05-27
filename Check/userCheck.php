@@ -63,6 +63,25 @@ if(isset($_SESSION['signup_login'])){
             
             if($conn->query($query1)){
                 $_SESSION['signup_r'] = "yes";
+                
+                $subject = "ConnectClub: Verify your Email Address";
+                $headers  = 'MIME-Version: 1.0' . "\r\n";
+                $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+ 
+                // Creating email headers
+                $headers .= 'X-Mailer: PHP/' . phpversion();
+                
+                $message = '<html><body>';
+                $message .= '<h1 style="color:black;">Hi '.$name.'!</h1>';
+                $message .= '<p style="color:green;font-size:19px;">Thanks for registration '.$name.'<br></p>';
+                $message .= '<p style="color:black;font-size:16px;">ConnectClub has sent you a link to verify your email address.<br></p>';
+                $message .= '<a style=\"font-size:16px;\" href="https://keltagoodlife.co/Connect-Club/verify?vkey='.$vkey.'" >Click this link to verify your email</a>';
+                $message .= '<p style="color:black;font-size:16px;">This is a software generated email, so do not reply to this email</p>';
+                $message .= '<p style="color:black;font-size:16px;">Thank you<br><br>Regards,<br>Team ConnectClub</p>';
+                
+                $message .= '</body></html>';
+                
+                mail($email,$subject,$message,$headers);
             }
             else{
                 echo "Something went wrong"; 
