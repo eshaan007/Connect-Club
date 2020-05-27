@@ -81,6 +81,26 @@ class Check{
 	
 }
 
+let loginCheck = () => {
+	    
+    let formL = document.getElementById('login');
+	document.getElementById('eu').name = "Eu";
+	document.getElementById('password').name = "Password";
+	
+	let eu = formL.Eu.value;
+	let pass = formL.Password.value;
+	let error = document.getElementById('loginerror');
+		
+	let check_data = new Check();
+	if(check_data.check(eu) || check_data.check(pass)){
+		    
+	    alert("Please add correct details");
+	    error.innerHTML = "Please add correct details";
+	    return;
+		    
+	}
+}
+
 let SignUpCheck = () => {
 	
 	let formS = document.getElementById('signup');
