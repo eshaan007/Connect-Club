@@ -85,3 +85,6 @@ body{
 .kel-heading:hover{
 	cursor:pointer;
 }
+.kel-sty{
+	color:red;
+}
