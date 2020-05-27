@@ -2,6 +2,13 @@
 
 	session_start();
 	
+if(!isset($_SERVER['HTTPS'] ) )
+{
+    header("Location:https://keltagoodlife.co/Connect-Club");   
+}
+	
+	$_SESSION['signup_login'] = "yes";
+	
 	function test_input($data) 
 	{
 		$data = trim($data);
@@ -15,9 +22,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ConnectClub | Connect everyone for free</title>
+		<title>ConnectClass | Connect entire class for any discussion for free</title>
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" href="CSS/ek.css">
+		<link rel="stylesheet" href="CSS/kel.css">
 		<link href="https://fonts.googleapis.com/css2?family=Literata&display=swap" rel="stylesheet"> 
 		
 		<style>
@@ -29,7 +36,7 @@
 <!-- First Grid: Logo & About -->
 	
 	<div class="w3-row w3-center kel-heading" style="">
-		Connect-Club 
+		ConnectClass
 	</div>
 	<div class="w3-row" style="margin-top:50px;">
 	
@@ -38,21 +45,21 @@
 		<div class="w3-half w3-light-gray w3-container w3-center w3-animate-right" style="height:500px;z-index:2;" id="left1">
 			<div class="w3-padding-64">
 			
-			<form class="w3-container w3-center w3-margin" method="post" action="login.php">
+			<form class="w3-container w3-center w3-margin" id="login">
 			<center>
-			<div class="w3-margin-bottom w3-text-red" id="loginerror"></div>
+			<div class="w3-text-red" id="loginerror"></div>
 			<div class="loader" id="loginloader" style="display:none"></div>
 			</center>
 			<img src="https://www.w3schools.com/w3images/avatar3.png" class="w3-margin w3-circle" alt="Person" style="width:50%">
 			<div class="w3-section">
-			  <input class="w3-input w3-round-xxlarge w3-border w3-hover-border-black" placeholder="name@example.com" style="width:100%;" type="text" name="email" required>
+			  <input class="w3-input w3-round-xxlarge w3-border w3-hover-border-black" placeholder="email or username" style="width:100%;" type="text" id="eu" required>
 			</div>
 			<div class="w3-section">
-			  <input type="password" class="w3-input w3-round-xxlarge w3-border w3-hover-border-black" placeholder="password" style="width:100%;" name="password" required>
+			  <input type="password" class="w3-input w3-round-xxlarge w3-border w3-hover-border-black" placeholder="password" style="width:100%;" id="password" required>
 			</div>
 			<a href="#" class="w3-margin-bottom">forgot password?</a>
 			<div class="w3-section">
-				<button type="submit" name="login" class="kel-button w3-black w3-round w3-padding w3-border-black w3-black">LogIn</button>
+				<button type="button" onclick="loginCheck()" class="kel-button w3-black w3-round w3-padding w3-border-black w3-black">LogIn</button>
 			</div>
 			</form>
 
@@ -65,10 +72,10 @@
 			<div class="w3-padding-64 w3-left w3-margin-left">
 			  <h1>New one?</h1>
 			  <h4>Nice to see you...</h4>
-			  <p>ConnectClub is an online platform to connect with other classmates. Click the button below to register for free.</p>
+			  <p>KeltaEdutech is a totally secure, simple and cool environment for students to study. We are glad to see you here. Click the below button to registerfor free.</p>
 			   <div class="w3-center w3-padding-large">
 				<button class="kel-button w3-margin-top w3-green w3-round w3-large w3-padding" onclick = "OpenSignIn()">
-					Register
+					Free regestration
 				</button>
 				</div>
 			</div>
@@ -84,11 +91,11 @@
 		<div class="w3-half w3-green w3-container w3-animate-right" style="height:500px;" id="left2">
 		<div class="w3-padding-64 w3-left w3-margin-left">
 			<h1>Already registered?</h1>
-			<h4>Welcome back...</h4>
-			<p>ConnectClub is an online platform to connect with other classmates. Click the button below to log in.</p>
+			<h4>nice to see you...</h4>
+			<p>KeltaEdutech is a totally secure, simple and cool environment for students to study. We are glad to see you here. Click the below button to log in.</p>
 			<div class="w3-center w3-padding-large">
 			<button class="kel-button w3-margin-top w3-green w3-round w3-large w3-padding" onclick="OpenLogIn()">
-				Login
+				LogIn
 			</button>
 			</div>
 		</div>
@@ -98,7 +105,7 @@
 	  
 		<div class="w3-half w3-light-gray w3-container w3-center w3-animate-left" style="height:500px;" id="right2">
 			<div class="w3-padding">
-			<div class="w3-xlarge w3-bold w3-margin-top">Fill the following form</div>
+			<div class="w3-xlarge w3-bold w3-margin-top">Fill the below form</div>
 			<form class="w3-container w3-center w3-margin" id="signup">
 			<center>
 			<div class="w3-text-red" id="SignUpError"></div>
@@ -118,12 +125,12 @@
 			</div>
 			
 			<div class="w3-section">
-				<select class="w3-select w3-round-xxlarge w3-border" id="gender" required>
+				<select class="w3-select w3-round-xxlarge w3-border" id="gender" style="padding-left:5px" required>
 					<span class="w3-animate-top">
-					<option value=""  disabled selected required>Gender</option>
-					<option value="Male">Male</option>
-					<option value="Female">Female</option>
-					<option value="Other">Other</option>
+					<option value="" class="w3-text-gray" disabled required>Select gender</option>
+					<option value="Male" class="w3-text-black" selected>Male</option>
+					<option value="Female" class="w3-text-black">Female</option>
+					<option value="Other" class="w3-text-black">Other</option>
 					</span>
 				</select>
 			</div>
