@@ -19,14 +19,14 @@ if(isset($_SESSION['login_user_connect_club']) && isset($_REQUEST['name'])){
         
         if($rslt['verified'] == '1'){
             include("../Commen/header.php");
-            <!-- Verified account area -->
+?>
+<!-- Verified account area -->
 <?php
             include("Parts/verifiedprofile.php");
         }
         else{
             include("../Commen/headernvr.php");
 ?>
-        }
 <!-- Notverified account area -->
 
 <?php
@@ -48,6 +48,4 @@ else{
     header("Location:../logout"); 
 }
 
-?>
-  }
 ?>
