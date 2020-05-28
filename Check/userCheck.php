@@ -29,7 +29,7 @@ if(isset($_SESSION['signup_login'])){
             ];
             
             $password = password_hash($password, PASSWORD_BCRYPT, $opt);
-            $theme = "w3-blue&w3-yellow&w3-red";
+            $theme = "blue";
             
             $vkey = md5(time().$name);
             
