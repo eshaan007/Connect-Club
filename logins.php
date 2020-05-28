@@ -18,7 +18,8 @@ if(isset($_SESSION['signup_r']) && isset($_SESSION['signup_login'])){
         if($data->num_rows <= 0){
             echo "Incorrect email";
         }
-        else{
+        else if($data->num_rows == 1){
+            
             $result = $data->fetch_assoc();
             $dbpass = $result['u_password'];
             
@@ -39,6 +40,10 @@ if(isset($_SESSION['signup_r']) && isset($_SESSION['signup_login'])){
             else{
                 echo "Incorrect password";
             }
+            
+        }
+        else{
+            echo "Incorrect details";
         }
     }
 }
