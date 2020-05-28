@@ -36,7 +36,7 @@ if(!isset($_SERVER['HTTPS'] ) )
 <!-- First Grid: Logo & About -->
 	
 	<div class="w3-row w3-center kel-heading" style="">
-		ConnectClass
+		ConnectClub
 	</div>
 	<div class="w3-row" style="margin-top:50px;">
 	
@@ -72,7 +72,7 @@ if(!isset($_SERVER['HTTPS'] ) )
 			<div class="w3-padding-64 w3-left w3-margin-left">
 			  <h1>New one?</h1>
 			  <h4>Nice to see you...</h4>
-			  <p>KeltaEdutech is a totally secure, simple and cool environment for students to study. We are glad to see you here. Click the below button to registerfor free.</p>
+			  <p>ConnectClub is a simple and easy environment for users to connect with your friends. We are glad to see you here. Click the below button to registerfor free.</p>
 			   <div class="w3-center w3-padding-large">
 				<button class="kel-button w3-margin-top w3-green w3-round w3-large w3-padding" onclick = "OpenSignIn()">
 					Free regestration
@@ -91,8 +91,8 @@ if(!isset($_SERVER['HTTPS'] ) )
 		<div class="w3-half w3-green w3-container w3-animate-right" style="height:500px;" id="left2">
 		<div class="w3-padding-64 w3-left w3-margin-left">
 			<h1>Already registered?</h1>
-			<h4>nice to see you...</h4>
-			<p>KeltaEdutech is a totally secure, simple and cool environment for students to study. We are glad to see you here. Click the below button to log in.</p>
+			<h4>Welcome back...</h4>
+			<p>ConnectClub is a simple and easy environment for users to connect with your friends. Click the below button to login.</p>
 			<div class="w3-center w3-padding-large">
 			<button class="kel-button w3-margin-top w3-green w3-round w3-large w3-padding" onclick="OpenLogIn()">
 				LogIn
