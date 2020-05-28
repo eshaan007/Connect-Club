@@ -46,5 +46,19 @@ if(isset($_SESSION['signup_r']) && isset($_SESSION['signup_login'])){
             echo "Incorrect details";
         }
     }
+    }
+    else{
+        echo "Something went wrong";
+        
+    }
+    
+    $conn->close();
+}
+else{
+    echo "<script>alert('Login first')</script>";
+    header("Location:logout");
+}
+
+?>
 }
 ?>
