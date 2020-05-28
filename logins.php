@@ -1,5 +1,7 @@
-<?php 
+<?php
+
 session_start();
+
 if(isset($_SESSION['signup_r']) && isset($_SESSION['signup_login'])){
 
     unset($_SESSION['signup_login']);
@@ -8,7 +10,7 @@ if(isset($_SESSION['signup_r']) && isset($_SESSION['signup_login'])){
     $name = $_POST['Name'];
     $email = $_POST['Email'];
     $password = $_POST['Pass1'];
-    
+
     require_once("../../Database/dbconnect_chat.php");
     
     $query = "SELECT `u_id`, `u_password`, `u_name` FROM `users` WHERE email = '$email'";
@@ -45,13 +47,11 @@ if(isset($_SESSION['signup_r']) && isset($_SESSION['signup_login'])){
         else{
             echo "Incorrect details";
         }
-    }
+        
     }
     else{
         echo "Something went wrong";
-        
     }
-    
     $conn->close();
 }
 else{
@@ -59,6 +59,4 @@ else{
     header("Location:logout");
 }
 
-?>
-}
 ?>
