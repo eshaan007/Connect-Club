@@ -28,3 +28,18 @@
     <i class="fa fa-home"></i> Lobby
     </a>
 </div>
+<button class="w3-bar-item w3-right w3-border kel-hover-2" title="My Account" style="margin-top:7px;margin-bottom:7px" onclick="document.getElementById('editun').style.display='block'">
+    <i class="fa fa-lock"></i> Kushang
+</button>
+
+<div class="w3-dropdown-click w3-bar-item w3-right w3-<?php echo $theme_color ?> w3-hover-<?php echo $theme_color ?>">
+<button class="kel-hover-2 w3-button w3-<?php echo $theme_color ?> w3-hover-<?php echo $theme_color ?>" onclick="myFunction()" title="Options" >
+    <i class="fa fa-caret-down"></i>
+</button>
+    <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
+      <a onclick="document.getElementById('editun').style.display='block'" class="w3-bar-item w3-button"><i class="fa fa-pencil"></i> Edit</a>
+      <a href="../logout" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i> LogOut</a>
+    </div>
+</div>
+
+</header>
