@@ -27,5 +27,27 @@ if(isset($_SESSION['login_user_connect_club']) && isset($_REQUEST['name'])){
             include("../Commen/headernvr.php");
 ?>
         }
+<!-- Notverified account area -->
+
+<?php
+            include("Parts/nonverifiedprofile.php");
+        }
+        
+    }
+    else{
+        echo "Something went wrong, Please try again later"; 
+    }
+    
+    
+?>
+<?php
+    
+    $conn->close();
+}
+else{
+    header("Location:../logout"); 
+}
+
+?>
   }
 ?>
