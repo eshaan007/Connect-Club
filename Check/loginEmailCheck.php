@@ -10,5 +10,40 @@ if(isset($_SESSION['signup_login'])){
     require_once("../../../Database/dbconnect_chat.php");
     
     $query = "SELECT `u_id`, `u_password`, `u_name` FROM `users` WHERE email = '$email'";
+    
+    if($data = $conn->query($query)){
+        
+        if($data->num_rows <= 0){
+            echo "Incorrect email";
+        }
+        else if($data->num_rows == 1){
+            
+            $result = $data->fetch_assoc();
+            $dbpass = $result['u_password'];
+            
+            if(password_verify($pass, $dbpass)){
+                
+                $opt = [
+                    'cost' => 12,  
+                ];
+                
+                $id = $result['u_id'];
+                $name = $result['u_name'];
+                
+                $url1 = base64_encode($id."&".$email."&".$name);
+                $_SESSION['login_user_connect_club'] = $url1;
+                
+            }
+            else{
+                echo "Incorrect password";
+            }
+            
+        }
+        else{
+            echo "Incorrect details";
+        }
+        
+    }
+    
 }
 ?>
