@@ -31,9 +31,6 @@ if(isset($_SESSION['signup_r']) && isset($_SESSION['signup_login'])){
                 $name = $result['u_name'];
                 $url = base64_encode($id."&".$name);
                 
-                echo "Written: ".$password;
-                echo "</br>Hashed: ".$dbpass;
-                
                 $url1 = base64_encode($id."&".$email."&".$name);
                 $_SESSION['login_user_connect_club'] = $url1;
                 header("Location:Users/profile?name=".$url);
