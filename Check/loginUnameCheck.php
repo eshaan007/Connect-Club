@@ -56,3 +56,5 @@ else{
     echo "<script>alert('Login first')</script>";
     header("Location:logout");
 }
+
+?>
