@@ -1,6 +1,3 @@
-//this is for the update theme after user varification is done.
-//In varified user part
-
 let updatetheme = (color) => {
     
     let str = "Color="+color;
@@ -24,12 +21,13 @@ let updatetheme = (color) => {
     xhttp.send(str);
 }
 
+    
 let updateProfile = () => {
     
     let u_name = document.getElementById('u_name').value;
 	let pass = document.getElementById('pass').value;
 	let newPass = document.getElementById('newPas').value;
-	let newAga = document.getElementById('newAgain').value;
+	let newAga = document.getElementById('newAga').value;
 	let check_data = new Check();
 	let error = document.getElementById('up-error');
 	        
@@ -49,24 +47,22 @@ let updateProfile = () => {
 	    return false;
 	} 
 	 
-	let str = "cur_pass="+pass+"&newPass="+newPass+"&newAga="+newAga;
-    let xhttp = new XMLHttpRequest();
-    let loader = document.getElementById('up-loader');
-    xhttp.onreadystatechange = function() {
-        loader.style.display = "block";
-        if(this.readyState == 4 && this.status == 200){
-        	error.innerHTML = this.responseText;
-        	loader.style.display = "none";
-        	if(this.responseText == ""){
-        	    alert("Password successfully updated");
-        	    location.reload(); 
+	let str = "u_name="+u_name+"&cur_pass="+pass+"&newPass="+newPass+"&newAga="+newAga;
+    	let xhttp = new XMLHttpRequest();
+    	let loader = document.getElementById('up-loader');
+    	xhttp.onreadystatechange = function() {
+        	loader.style.display = "block";
+        	if(this.readyState == 4 && this.status == 200){
+        		error.innerHTML = this.responseText;
+        		loader.style.display = "none";
+        		if(this.responseText == ""){
+        	    		alert("Password successfully updated");
+        	    		location.reload(); 
+        		}
         	}
-        }
-    }
-    xhttp.open("POST", "/Js/updateProfile", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send(str);
-	    
-	
-    
+    	}
+    	xhttp.open("POST", "updateProfile", true);
+    	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    	xhttp.send(str);
+ 
 }
