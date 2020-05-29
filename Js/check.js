@@ -2,8 +2,10 @@
 //but I didn't do that here.
 //for that use export class or export default class
 
-class check{
-  	check(Name){
+class Check{
+	
+	//method to check the suspecious things in input
+	check(Name){
 			
 		if(Name == ""){
 			throw "Name is empty";
@@ -14,6 +16,8 @@ class check{
 		}
 		
 	}
+	
+	//method to varify the email
 	emailCheck(email, cont_msg) {
 		
 		if(email == ""){
