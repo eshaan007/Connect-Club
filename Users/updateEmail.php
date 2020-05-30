@@ -2,7 +2,7 @@
 
 session_start();
 
-if(isset($_SESSION['login_user_connect_club']) || isset($_REQUEST['Email'])){
+if(isset($_SESSION['login_user_connect_club']) && isset($_REQUEST['Email'])){
     
     require_once("../../../Database/dbconnect_chat.php");
     $dts = explode("&",base64_decode($_SESSION['login_user_connect_club']));
@@ -10,7 +10,7 @@ if(isset($_SESSION['login_user_connect_club']) || isset($_REQUEST['Email'])){
     $name = $dts[2];
     $email = $_REQUEST['Email'];
     $vkey = -1;
-    $query = "SELECT vkey FROM users WHERE u_id = $u_id";
+    $query = "SELECT vkey FROM users WHERE u_id = $id";
     
     if($data = $conn->query($query)){
         
@@ -22,7 +22,7 @@ if(isset($_SESSION['login_user_connect_club']) || isset($_REQUEST['Email'])){
         die("something went wrong1");
     }
     
-    $query = "UPDATE users SET email = '$email' WHERE u_id = $u_id";
+    $query = "UPDATE users SET email = '$email' WHERE u_id = $id";
     
     if($conn->query($query)){
         
