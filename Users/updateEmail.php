@@ -2,13 +2,21 @@
 
 session_start();
 
+function test_input($data) 
+{
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
+
 if(isset($_SESSION['login_user_connect_club']) && isset($_REQUEST['Email'])){
     
     require_once("../../../Database/dbconnect_chat.php");
     $dts = explode("&",base64_decode($_SESSION['login_user_connect_club']));
-    $id = $dts[0];
-    $name = $dts[2];
-    $email = $_REQUEST['Email'];
+    $id = test_input($dts[0]);
+    $name = test_input($dts[2]);
+    $email = test_input($_REQUEST['Email']);
     $vkey = -1;
     $query = "SELECT vkey FROM users WHERE u_id = $id";
     
