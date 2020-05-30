@@ -80,7 +80,7 @@
 		echo "Login first";
 	}
 	else{
-		header('Location:logout');
+		header('Location:../logout');
 	}
 	
 ?>
