@@ -41,7 +41,7 @@
 		}
 		
 
-		$query = "SELECT u_password FROM users WHERE u_id = $u_id";
+		$query = "SELECT u_password FROM users WHERE u_id = $id";
 		if($data = $conn->query($query)){
 			
 			if($data->num_rows<=0){
@@ -56,7 +56,7 @@
 						
 					$pass = password_hash($new_pass, PASSWORD_BCRYPT, $opt);
 					
-					$query1 = "UPDATE users SET u_password = '$pass', u_name = '$u_name' WHERE u_id = $u_id";
+					$query1 = "UPDATE users SET u_password = '$pass', u_name = '$u_name' WHERE u_id = $id";
 					if($conn->query($query1)){
 						
 					}
