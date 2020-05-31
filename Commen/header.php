@@ -29,7 +29,7 @@
     </a>
 </div>
 <button class="w3-bar-item w3-right w3-border kel-hover-2" title="My Account" style="margin-top:7px;margin-bottom:7px" onclick="document.getElementById('editun').style.display='block'">
-    <i class="fa fa-lock"></i> Kushang
+    <i class="fa fa-lock"></i> <?php echo $name ?>
 </button>
 
 <div class="w3-dropdown-click w3-bar-item w3-right w3-<?php echo $theme_color ?> w3-hover-<?php echo $theme_color ?>">
