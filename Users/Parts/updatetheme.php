@@ -1,8 +1,10 @@
 <?php
 
+session_start();
+
 if(isset($_SESSION['login_user_connect_club']) && isset($_REQUEST['Color'])){
     
-    require_once("/../../Database/dbconnect_chat.php");
+    require_once("../../../../Database/dbconnect_chat.php");
     $dts = explode("&",base64_decode($_SESSION['login_user_connect_club']));
     $id = $dts[0];
     $name = $dts[2];
