@@ -63,3 +63,56 @@
       
     </div>
 </div>
+<center>
+<div class="w3-padding-64">
+<div class="w3-row w3-content w3-padding w3-margin-top" style="max-width:600px">
+
+<div class='w3-half w3-padding'>
+    <a href="createClub?name=<?php echo $_REQUEST['name'] ?>" style="text-decoration:none">
+    <div class="w3-light-gray w3-padding-32 w3-text-<?php echo $theme_color ?> w3-xlarge">
+    <div><i class="fa fa-plus w3-jumbo"></i></div>
+    <div>Create</div>
+    </div>
+    </a>
+</div>
+
+<div class='w3-half w3-padding'>
+    <a href="joinClub?name=<?php echo $_REQUEST['name'] ?>" style="text-decoration:none">
+    <div class='w3-light-gray w3-padding-32 w3-text-<?php echo $theme_color ?> w3-xlarge'>
+    <div><i class="fa fa-external-link w3-jumbo"></i></div>
+    <div>Join</div>
+    </div>
+    </a>
+</div>
+
+</div>
+
+<div class="w3-row w3-content w3-padding" style="max-width:600px">
+
+<div class='w3-half w3-padding'>
+    <a href="myClubs?name=<?php echo $_REQUEST['name'] ?>" style="text-decoration:none">
+    <div class="w3-light-gray w3-padding-32 w3-text-<?php echo $theme_color ?> w3-xlarge">
+    <div><i class="fa fa-home w3-jumbo"></i></div>
+    <div>My Clubs</div>
+    </div>
+    </a>
+</div>
+
+<div class='w3-half w3-padding'>
+    <a onclick="document.getElementById('editun').style.display='block'" class="kel-hover-2" style="text-decoration:none">
+    <div class='w3-light-gray w3-padding-32 w3-text-<?php echo $theme_color ?> w3-xlarge'>
+    <div><i class="fa fa-cog w3-jumbo"></i></div>
+    <div>Settings</div>
+    </div>
+    </a>
+</div>
+
+</div>
+
+</div>
+</center>
+<script src="/Connect-Club/Js/check.js"></script>
+<script src="Js/varified.js"></script>
+
+</body>
+</html>
