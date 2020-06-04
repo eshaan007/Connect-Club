@@ -33,3 +33,9 @@ After completing all these steps, the user will be *directed to the landing page
 On this page, the User has to create a new Chat-Club in which he/she has to enter the following parameters : *name of the **Chat-Club**, password and the type of Chat-Club.*
 
 After the creation of the Club, you will be welcomed to the Home page from where you can go to *My Clubs* where the new Club is present.
+
+#### Join Page :
+On this page, the User can join a particular Chat-Club if it already exists in the Database by entering the *name of the **Chat-Club**, password and the type of Chat-Club.*
+
+After joining, he will be greeted to the page where the conversation can begin in the clubs.
+
