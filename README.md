@@ -22,3 +22,5 @@ Once the user has signed up, The *Login page* will contain only 2 parameters i.e
 It will be rendered using *server-side scripts*. 
 
 After completing all these steps, the user will be *directed to the landing page* of his respective profile. :ok_hand:
+
+On the Landing Page, there are 4 main options to choose from :
