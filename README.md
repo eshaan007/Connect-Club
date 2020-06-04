@@ -41,3 +41,8 @@ After joining, he will be greeted to the page where the conversation can begin i
 
 #### My Clubs Page : 
 This page shows a list of the Clubs you have joined and we can either **Enter** the Club or **Delete** the Club. There is also an option for the people who haven't joined any other Club to join a *new Club*.
+
+#### Settings Menu : 
+This pop-up will let you choose from a range of 5 different colors.\
+It also has a Feature to change your UserName from the one set by default.\
+The Password can also be changed but it requires to be put twice and the previous password also has to be typed in for changing it.
