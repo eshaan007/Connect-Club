@@ -28,3 +28,8 @@ After completing all these steps, the user will be *directed to the landing page
 - Join
 - My Clubs
 - Settings
+
+#### Create Page : 
+On this page, the User has to create a new Chat-Club in which he/she has to enter the following parameters : *name of the **Chat-Club**, password and the type of Chat-Club.*
+
+After the creation of the Club, you will be welcomed to the Home page from where you can go to *My Clubs* where the new Club is present.
