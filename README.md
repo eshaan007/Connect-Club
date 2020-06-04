@@ -39,3 +39,5 @@ On this page, the User can join a particular Chat-Club if it already exists in t
 
 After joining, he will be greeted to the page where the conversation can begin in the clubs.
 
+#### My Clubs Page : 
+This page shows a list of the Clubs you have joined and we can either **Enter** the Club or **Delete** the Club. There is also an option for the people who haven't joined any other Club to join a *new Club*.
