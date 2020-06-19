@@ -47,4 +47,4 @@ This pop-up will let you choose from a range of 5 different colors.\
 It also has a Feature to change your UserName from the one set by default.\
 The Password can also be changed but it requires to be put twice and the previous password also has to be typed in for changing it.
 
-Made with :heart: by Kushang Shah and Eshaan Khurana
+Made with :heart: by Kushang Shah and Eshaan Khurana.
