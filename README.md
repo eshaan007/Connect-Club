@@ -15,24 +15,25 @@ Made only for **Educational Purposes** !! :man_technologist:
 
 ## Working of the Application : 
 
-To Sign Up for the first time, the user has to provide their ***email***, **firstName**, **lastName** and a ***unique userName*** with their **new password**. :lock:
+To Register for the first time, the user has to provide their **Name**, ***email***, **password** and another column with their **new password** and **gender** column for setting the default image. :lock:
+
 For verification, an *email* will be sent which the user has to click in order to **initialize the application**. :email: :unlock:
 
-Once the user has signed up, The *Login page* will contain only 2 parameters i.e., **userName/emailID** and the **password**.:new: :key:
+Once the user has signed up, The *Login page* will contain only 2 parameters i.e., **emailID** and the **password**.:new: :key:
 It will be rendered using *server-side scripts*. 
 
-After completing all these steps, the user will be *directed to the landing page* of his respective profile. :ok_hand:
+After completing all these steps, the user will be *directed to the Lobby*. :ok_hand:
 
-### On the Landing Page, there are 4 main options to choose from :
-- Create
-- Join
-- My Clubs
-- Settings
+### In the Lobby, there are 4 main options to choose from :
+- Create ➕
+- People 👬
+- My Clubs 🏠
+- Settings ⚙️
 
-#### Create Page : 
-On this page, the User has to create a new Chat-Club in which he/she has to enter the following parameters : *name of the **Chat-Club**, password and the type of Chat-Club.*
+#### Create Page ➕ : 
+On this page, the User has to create a new "Connect-Club" in which he/she has to enter the following parameters : *name of the **Chat-Club**, password and the type of Chat-Club - Private or Public*.
 
-After the creation of the Club, you will be welcomed to the Home page from where you can go to *My Clubs* where the new Club is present.
+After the creation of the Club, *an encrypted link* will be created which can be sent to the other people to be admitted in this Club. Then the admin himself can join the club from the **My Clubs** section in the Lobby. 
 
 #### Join Page :
 On this page, the User can join a particular Chat-Club if it already exists in the Database by entering the *name of the **Chat-Club**, password and the type of Chat-Club.*
