@@ -80,3 +80,40 @@ if(isset($_SESSION['login_user_connect_club']) && isset($_REQUEST['name'])){
 </center>
 <script>
     
+    let poke = (poker_id, recever_id, user = "someone") => {
+    
+    let str = "poker_id="+poker_id+"&recever_id="+recever_id;
+    let xhttp = new XMLHttpRequest();
+    
+    xhttp.onreadystatechange = function() {
+    	
+    	if(this.readyState == 4 && this.status == 200){
+    		
+    		if(this.responseText == ""){
+    		    alert("You just poked "+user);
+    		}
+    	}
+    }
+    xhttp.open("POST", "Action/poke", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(str);
+    
+}
+
+    
+</script>
+</body>
+</html>
+<?php
+        }
+    }
+    else{
+        die("Something went wrong");
+    }
+    
+}
+else{
+    header("Location:../logout"); 
+}
+
+?>
