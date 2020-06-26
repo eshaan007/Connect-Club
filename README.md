@@ -16,15 +16,15 @@ Made only for **Educational Purposes** !! :man_technologist:
 
 Pre-requisites :
 ```
-**phpMyAdmin (Xampp Server)** You can download it from the link below:👇
-https://www.apachefriends.org/download.html 
+phpMyAdmin(Xampp Server) You can download it from the link below:👇
+[Xampp Server](https://www.apachefriends.org/download.html) 
 A working Computer with good connectivity and then you are good to go!.
 ```
 
 Steps to follow :
 ```
 Fork the Repository 
-Clone the Repositoy  
+Clone the Repository  
 Connect it with the Xampp Server and run it !
 ```
 
@@ -38,6 +38,14 @@ Once the user has signed up, The *Login page* will contain only 2 parameters i.e
 It will be rendered using *server-side scripts*. 
 
 After completing all these steps, the user will be *directed to the Lobby*. :ok_hand:
+
+<p align="center">
+  
+  <img src="/Screenshots/Registration.png/" width="350" title="Registration Page">
+
+  <img src="/Screenshots/Login.png/" width="350" title="Login Page">
+  
+</p>
 
 ### In the Lobby, there are 4 main options to choose from :
 - Create ➕
