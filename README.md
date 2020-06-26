@@ -45,11 +45,18 @@ He can check their profile and use our Unique feature " Pokification™️ ".
 #### My Clubs Page : 
 On this page, the User can see 2 different columns :
 - **Clubs Created by me** : The person can see the different clubs he is part of and can either *enter* the club, *delete* the club or send invitation link to someone who has to join. 
-- **Total Connected Clubs** : The person can see all the clubs he either was an admin, or just a participant.
+- **Total Connected Clubs** : The person can see all the clubs in which he either was an admin, or just a participant.
 
 #### Settings Menu : 
 This pop-up will let you choose from a range of 5 different colors.\
 It also has a Feature to change your UserName from the one set by default.\
 The Password can also be changed but it requires to be put twice and the previous password also has to be typed in for changing it.
+
+#### Pokification™️ : 
+This feature is exclusive to our application. It allows the user to poke as well as send a notification to the other user, like no other application in the market.\
+It can be accessed from the dropdown menu and then used to send a pokification to our respective friends.
+
+#### Chat Interface : 
+
 
 Made with :heart: by Kushang Shah and Eshaan Khurana.
