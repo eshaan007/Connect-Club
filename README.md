@@ -31,6 +31,18 @@ Clone the Repository
 Connect it with the Xampp Server and run it !
 ```
 
+How other users can join your Xampp Local server : 
+```
+Using Local hotspot, connect with nearby users.
+Main host has to write 'ipconfig' in Command Prompt.
+ipv4 address should be taken.
+Using this, other users can join the Connect-Club.
+```
+Others, Can follow a simpler route by using the URL given below: 👇
+[Connect-Club](https://keltagoodlife.co/Connect-Club)
+
+***SIGN UP AND ENJOY THE EXPERIENCE!***
+
 ## Working of the Application : 
 
 To Register for the first time, the user has to provide their **Name**, ***email***, **password** and retype to **confirm password** and **gender** column for setting the default image. :lock:
