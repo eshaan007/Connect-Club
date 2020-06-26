@@ -16,7 +16,7 @@ Made only for **Educational Purposes** !! :man_technologist:
 
 Pre-requisites :
 ```
-phpMyAdmin(Xampp Server) You can download it from the link below:👇
+phpMyAdmin(Xampp Server) You can download it from the link below: :right-hand👉
 ```
 [Download Xampp Server](https://www.apachefriends.org/download.html)
 
