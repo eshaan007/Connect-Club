@@ -1,5 +1,4 @@
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
-[![Version](https://badge.fury.io/gh/tterb%2FHyde.svg)](https://badge.fury.io/gh/tterb%2FHyde)
 [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)  
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
 
@@ -12,6 +11,22 @@ It is made using PHP, MySQL, Ajax, HTML, CSS, and JavaScript. :zap:
 It is useful for solving doubts among peers and friends while not disturbing the class. :speak_no_evil: It helps in inculcating the discipline among students during lectures and stop the urge to speak with friends. 🤫
 
 Made only for **Educational Purposes** !! :man_technologist:
+
+## How to get it working on your systems ? 
+
+Pre-requisites :
+```
+**phpMyAdmin (Xampp Server)** You can download it from the link below:👇
+https://www.apachefriends.org/download.html 
+A working Computer with good connectivity and then you are good to go!.
+```
+
+Steps to follow :
+```
+Fork the Repository 
+Clone the Repositoy  
+Connect it with the Xampp Server and run it !
+```
 
 ## Working of the Application : 
 
@@ -58,9 +73,7 @@ It can be accessed from the dropdown menu and then used to send a pokification t
 
 #### Chat Interface : 
 In the chat interface, on the left, there is a column which shows the number of members included in the Connect-Club. \
-On the right, is the place where the actual chat is going on. \
-There is an option to leave. \
-P.S. It also has Emoji Supoort for us Millenials!!\
-Whenever the class ends, the Connect-Club can be deleted and then re-created for the next class. \
+*P.S. It also has Emoji Supoort for us Millenials!!*\
+Whenever the class ends, the Connect-Club can be deleted and then re-created for the next class.
 
-Made with :heart: by Kushang Shah and Eshaan Khurana.
+**Made with :heart: by Kushang Shah and Eshaan Khurana.**
