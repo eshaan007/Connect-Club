@@ -162,3 +162,155 @@ if(isset($_SESSION['login_user_connect_club']) && isset($_REQUEST['name'])){
                 </tbody>
             </table>
         </div>
+        <div class="w3-col l6 m12 w3-margin-top">
+            <table class="w3-table w3-border">
+                <thead>
+                    <tr class="w3-<?php echo $theme_color ?>">
+                        <td colspan="2" class="w3-center w3-xlarge">Total connected clubs</td>
+                    </tr>
+                    <tr class="w3-light-gray">
+                        <td>Name</td>
+                        <td>Operation</td>
+                    </tr>
+                </thead>
+                <tbody>
+<?php
+    $query = "SELECT chat_clubs.club_id, chat_clubs.club_name, chat_clubs.admin_id, chat_clubs.members FROM (chat_club_member INNER JOIN chat_clubs ON chat_club_member.club_id = chat_clubs.club_id) WHERE u_id = $id";
+    
+    if($data = $conn->query($query)){
+        
+        if($data->num_rows <= 0){
+?>
+<tr>
+    <td colspan="2">
+<div class="w3-center w3-padding">You haven't connected to any Chat clubs yet...</div>
+
+</td>
+</tr>
+<?php
+        }
+        
+        while($result = $data->fetch_assoc()){
+            $club_name = $result['club_name'];
+            $club_id = $result['club_id'];
+            $admin_id = $result['admin_id'];
+            $url = base64_encode($id."&".$club_id."&".$club_name."&".$admin_id);
+?>
+    <tr>
+        <td style="vertical-align:middle"><?php echo $result['club_name'] ?> <div class="w3-badge"><?php echo $result['members'] ?></div> </td>
+        <td>
+            <button class="w3-button w3-light-gray w3-hover-blue kel-hover-2" onclick="location.replace('chat_club?name=<?php echo $url ?>')">
+                <i class="fa fa-external-link-square"></i> Enter
+            </button>
+            <button class="w3-button w3-light-gray w3-hover-red kel-hover-2" onclick="leave(<?php echo $club_id ?>, <?php echo $id ?>)"><i class="fa fa-sign-out"></i> Leave</button>
+        </td>
+    </tr>
+<?php
+        }
+    }
+    else{
+        echo "something went wrong";
+    }
+?>
+                </tbody>
+            </table>
+        </div>
+</div>
+<script src="../Js/check.js"></script>
+<script src="Js/varified.js"></script>
+<script>
+    
+let copy = (id) => {
+    
+    let text = document.getElementById(id);
+    text.select();
+    text.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    
+}    
+
+let deleteAdmin = (club_id, id) => {
+    
+    if(!confirm("Do you really want to delete this Entire Club? It will delete all chats")){
+        return;
+    }
+    
+    let str = "Club_id="+club_id+"&u_id="+id;
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    	
+    	if(this.readyState == 4 && this.status == 200){
+    		
+    		if(this.responseText.length == ""){
+    		    alert("successfully deleted");
+    		    location.reload();
+    		    return;
+    		}
+    		alert(this.responseText);
+    		
+    	}
+    }
+    xhttp.open("POST", "Action/deleteAdmin", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(str);
+    
+}
+    
+let leave = (club_id, id) => {
+    
+    if(!confirm("Do you really want to leave this Club?")){
+        return;
+    }
+    
+    let str = "Club_id="+club_id+"&u_id="+id;
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    	
+    	if(this.readyState == 4 && this.status == 200){
+    		
+    		if(this.responseText.length == ""){
+    		    
+    		    alert("successfully left");
+    		    location.reload();
+    		    return;
+    		}
+    		alert(this.responseText);
+    		
+    	}
+    }
+    xhttp.open("POST", "Action/leaveUser", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(str);
+    
+}
+
+</script>
+</body>
+</html>
+<?php
+        }
+        else{
+           
+?>
+<!-- Notverified account area -->
+
+<?php
+            header("Location:../logout.php");
+        }
+        
+    }
+    else{
+        echo "Something went wrong, Please try again later"; 
+    }
+    
+    
+?>
+<?php
+    
+    $conn->close();
+}
+else{
+    header("Location:../logout"); 
+}
+
+?>
