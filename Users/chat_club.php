@@ -128,3 +128,210 @@ if(isset($_SESSION['login_user_connect_club']) && isset($_REQUEST['name'])){
     }
     
 ?>
+<div class="w3-row w3-row-padding w3-margin-top">
+<!-- members section -->
+<div class="w3-col l3 m3 w3-hide-small w3-round">
+<div class="w3-padding w3-center w3-xlarge w3-round w3-<?php echo $theme_color ?>">Members</div>
+<table class="w3-table w3-border">
+<thead>
+    <tr>
+        <td class="w3-light-gray" colspan = "2">Names</td>
+    </tr>
+</thead>
+<tbody>
+<!-- Admin name -->
+<?php
+    $query1 = "SELECT u_name FROM users WHERE u_id = $admin_id";
+    
+    if($data1 = $conn->query($query1)){
+        
+        $result1 = $data1->fetch_assoc();
+?>
+<tr>
+    <td><i class="fa fa-user-circle"></i> <?php echo $result1['u_name'] ?></td>
+    <td class=""><span class="w3-<?php echo $theme_color ?>">Admin</span></td>
+</tr>
+<?php
+        
+    }
+    else{
+        echo "something went wrong";
+    }
+?>
+<!-- Other members name -->
+<?php
+    $query1 = "SELECT u_name FROM(chat_club_member INNER JOIN users ON chat_club_member.u_id = users.u_id) WHERE club_id = $club_id ORDER BY u_name";
+    
+    if($data1 = $conn->query($query1)){
+        
+        while($result1 = $data1->fetch_assoc()){
+?>
+<tr>
+    <td><i class="fa fa-user"></i> <?php echo $result1['u_name'] ?></td>
+    <td></td>
+</tr>
+<?php
+        }   
+    }
+    else{
+        echo "something went wrong";
+    }
+?>
+</tbody>
+</table>
+</div>
+<!-- chat section -->
+<div class="w3-col l9 m9 w3-round">
+<div class="w3-padding-large w3-border w3-round w3-xlarge w3-<?php echo $theme_color ?> w3-bar">
+    <div class="w3-bar-item">
+        <i class="fa fa-users"></i> <?php echo $club_name ?>
+    </div>
+    <button class="w3-bar-item w3-button w3-white w3-hover-red kel-hover-2 w3-right w3-large" onclick="leave(<?php echo $club_id ?>, <?php echo $id ?>)"><i class="fa fa-sign-out"></i> Leave</button>
+</div>
+
+<div class="w3-border w3-round w3-round w3-xlarge w3-light-gray" >
+<div id="chats" style="height:500px;overflow:scroll">
+    
+</div>
+</div>
+
+<div class="w3-row" style="margin-top:10px">
+<div class="w3-col l11 m10 s10">
+    
+<input class="w3-input w3-border w3-round w3-large" id="sender" placeholder="your message...">
+</div>
+<button class="w3-col l1 m2 s2 w3-button w3-<?php echo $theme_color ?> w3-round w3-large" type="submit" onclick="send()">Send</button>
+</div>
+</div>
+</div>
+
+<script src="../Js/check.js"></script>
+<script src="Js/varified.js"></script>
+<script>
+    
+    
+let leave = (club_id, id) => {
+    
+    if(!confirm("Do you really want to leave this Club?")){
+        return;
+    }
+    
+    let str = "Club_id="+club_id+"&u_id="+id;
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    	
+    	if(this.readyState == 4 && this.status == 200){
+    		
+    		if(this.responseText.length == ""){
+    		    
+    		    alert("successfully left");
+    		    location.reload();
+    		    return;
+    		}
+    		alert(this.responseText);
+    		
+    	}
+    }
+    xhttp.open("POST", "Action/leaveUser", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(str);
+    
+}
+    
+let scrollUpdate = () => {
+    
+    var element = document.getElementById("chats");
+    element.scrollTop = element.scrollHeight;
+
+}    
+    
+let send = () => {
+    
+    let msg = document.getElementById("sender").value;
+    if(msg == "" || msg == " "){
+        
+        return;
+        
+    }
+    
+    let str = "msg="+msg+"&u_id="+<?php echo $id ?>+"&club_id="+<?php echo $club_id ?>+"&theme="+'<?php echo $theme_color ?>';
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    	
+    	if(this.readyState == 4 && this.status == 200){
+    		
+    		if(this.responseText.length == "not"){
+    		    
+    		    alert("We are having some trouble in sending this message");
+    		    return;
+    		}
+    		
+    		document.getElementById("sender").value="";
+    		document.getElementById("chats").innerHTML += this.responseText;
+    	    scrollUpdate();
+    	}
+    }
+    xhttp.open("POST", "Action/sendMsg", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(str);
+    scrollUpdate();
+    
+}
+    
+let refresh = () =>{
+    
+    let str = "club_id="+<?php echo $club_id ?>+"&theme="+'<?php echo $theme_color ?>';
+    let xhttp = new XMLHttpRequest();
+    let data = document.getElementById("chats").innerHTML;
+    xhttp.onreadystatechange = function() {
+    	
+    	if(this.readyState == 4 && this.status == 200){
+    		
+    		if(this.responseText.length == "not2"){
+    		    
+    		    alert("We are having some trouble in sending this message");
+    		    return;
+    		}
+    		
+    		document.getElementById("chats").innerHTML = this.responseText;
+    	    if(data != document.getElementById("chats").innerHTML){
+                scrollUpdate();
+            }
+    	}
+    }
+    xhttp.open("POST", "Action/getMsg", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(str);
+    
+}    
+setInterval(refresh, 1000);
+</script>
+</body>
+</html>
+<?php
+        }
+        else{
+           
+?>
+<!-- Notverified account area -->
+
+<?php
+            header("Location:../logout.php");
+        }
+        
+    }
+    else{
+        echo "Something went wrong, Please try again later"; 
+    }
+    
+    
+?>
+<?php
+    
+    $conn->close();
+}
+else{
+    header("Location:../logout"); 
+}
+
+?>
