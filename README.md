@@ -40,7 +40,7 @@ On this page, the User can see all the people he shares different "Connect-Clubs
 
 He can check their profile and use our Unique feature " Pokification™️ ". 
 
-**Pokification™️ ** :- It is a feature which alerts the Other User of the other person's messages. A fun way to alert your friend.
+**Pokification™️** :- It is a feature which alerts the Other User of the other person's messages. A fun way to alert your friend.
 
 #### My Clubs Page : 
 On this page, the User can see 2 different columns :
@@ -57,6 +57,10 @@ This feature is exclusive to our application. It allows the user to poke as well
 It can be accessed from the dropdown menu and then used to send a pokification to our respective friends.
 
 #### Chat Interface : 
-
+In the chat interface, on the left, there is a column which shows the number of members included in the Connect-Club. \
+On the right, is the place where the actual chat is going on. \
+There is an option to leave. \
+P.S. It also has Emoji Supoort for us Millenials!!\
+Whenever the class ends, the Connect-Club can be deleted and then re-created for the next class. \
 
 Made with :heart: by Kushang Shah and Eshaan Khurana.
