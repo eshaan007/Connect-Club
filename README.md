@@ -40,10 +40,12 @@ On this page, the User can see all the people he shares different "Connect-Clubs
 
 He can check their profile and use our Unique feature " Pokification™️ ". 
 
-**Pokification** :- It is a feature which alerts the Other User of the other person's messages. A fun way to alert your friend.
+**Pokification™️ ** :- It is a feature which alerts the Other User of the other person's messages. A fun way to alert your friend.
 
 #### My Clubs Page : 
-This page shows a list of the Clubs you have joined and we can either **Enter** the Club or **Delete** the Club. There is also an option for the people who haven't joined any other Club to join a *new Club*.
+On this page, the User can see 2 different columns :
+- **Clubs Created by me** : The person can see the different clubs he is part of and can either *enter* the club, *delete* the club or send invitation link to someone who has to join. 
+- **Total Connected Clubs** : The person can see all the clubs he either was an admin, or just a participant.
 
 #### Settings Menu : 
 This pop-up will let you choose from a range of 5 different colors.\
