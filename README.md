@@ -16,7 +16,7 @@ Made only for **Educational Purposes** !! :man_technologist:
 
 Pre-requisites :
 ```
-phpMyAdmin(Xampp Server) You can download it from the link below: :right-hand👉
+phpMyAdmin(Xampp Server) You can download it from the link below: 👇
 ```
 [Download Xampp Server](https://www.apachefriends.org/download.html)
 
@@ -38,7 +38,7 @@ Main host has to write 'ipconfig' in Command Prompt.
 ipv4 address should be taken.
 Using this, other users can join the Connect-Club.
 ```
-Others, Can follow a simpler route by using the URL given below: 👇
+Others, Can follow a simpler route by using the URL given below: 👉
 [Connect-Club](https://keltagoodlife.co/Connect-Club)
 
 ***SIGN UP AND ENJOY THE EXPERIENCE!***
