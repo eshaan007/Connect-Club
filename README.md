@@ -15,7 +15,7 @@ Made only for **Educational Purposes** !! :man_technologist:
 
 ## Working of the Application : 
 
-To Register for the first time, the user has to provide their **Name**, ***email***, **password** and another column with their **new password** and **gender** column for setting the default image. :lock:
+To Register for the first time, the user has to provide their **Name**, ***email***, **password** and retype to **confirm password** and **gender** column for setting the default image. :lock:
 
 For verification, an *email* will be sent which the user has to click in order to **initialize the application**. :email: :unlock:
 
@@ -35,10 +35,12 @@ On this page, the User has to create a new "Connect-Club" in which he/she has to
 
 After the creation of the Club, *an encrypted link* will be created which can be sent to the other people to be admitted in this Club. Then the admin himself can join the club from the **My Clubs** section in the Lobby. 
 
-#### Join Page :
-On this page, the User can join a particular Chat-Club if it already exists in the Database by entering the *name of the **Chat-Club**, password and the type of Chat-Club.*
+#### People Page 👬 :
+On this page, the User can see all the people he shares different "Connect-Clubs" with. 
 
-After joining, he will be greeted to the page where the conversation can begin in the clubs.
+He can check their profile and use our Unique feature " Pokification™️ ". 
+
+**Pokification** :- It is a feature which alerts the Other User of the other person's messages. A fun way to alert your friend.
 
 #### My Clubs Page : 
 This page shows a list of the Clubs you have joined and we can either **Enter** the Club or **Delete** the Club. There is also an option for the people who haven't joined any other Club to join a *new Club*.
