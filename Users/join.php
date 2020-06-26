@@ -129,3 +129,116 @@ if($result['club_type'] == "private"){
 </div>
 </div>
 </center>
+<script src="Js/varified.js"></script>
+<script>
+    let joinPass = () => {
+        
+        let u_id = <?php echo $id ?>;
+        let club_id = <?php echo $result['club_id'] ?>;
+        let pass = document.getElementById('club_pass').value;
+        
+        if(pass == ""){
+            alert("Please enter password");
+            return;
+        }
+        
+        let str = "u_id="+u_id+"&club_id="+club_id+"&pass="+pass;
+        let xhttp = new XMLHttpRequest();
+        let loader = document.getElementById('loader');
+        let error = document.getElementById('error');
+        
+        xhttp.onreadystatechange = function() {
+        	loader.style.display = "block";
+        	if(this.readyState == 4 && this.status == 200){
+        		error.innerHTML = this.responseText;
+        		loader.style.display = "none";
+        		if(this.responseText == ""){
+        		    alert("Welcome to the <?php echo $result['club_name'] ?> Club");
+        		    let x = document.getElementById('join');
+<?php
+$club_id = $result['club_id'];
+$club_name = $result['club_name'];
+$admin_id = $result['admin_id'];
+$url = base64_encode($id."&".$club_id."&".$club_name."&".$admin_id);
+?>
+        		    location.replace('chat_club?name=<?php echo $url ?>')
+         		}
+        	}
+        }
+        xhttp.open("POST", "joinChatClub", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(str);
+        
+    }
+</script>
+<?php
+}
+else if($result['club_type'] == "public"){
+    
+    $club_id = $result['club_id'];
+    $club_name = $result['club_name'];
+    $admin_id = $result['admin_id'];
+    $url = base64_encode($id."&".$club_id."&".$club_name."&".$admin_id);
+
+?>
+<script>
+let joinPublic = () => {
+    
+    let u_id = <?php echo $id ?>;
+    let club_id = <?php echo $result['club_id'] ?>;
+    
+    let str = "u_id="+u_id+"&club_id="+club_id;
+    let xhttp = new XMLHttpRequest();
+    
+    xhttp.onreadystatechange = function() {
+    	
+    	if(this.readyState == 4 && this.status == 200){
+    		
+    		if(this.responseText == ""){
+    		    alert("Welcome to the <?php echo $result['club_name'] ?> Club");
+    		    let x = document.getElementById('join');
+     		    location.replace('chat_club?name=<?php echo $url ?>')
+     		}
+     		else{
+     		    alert(this.responseText);
+     		}
+    	}
+    }
+    xhttp.open("POST", "joinPublic", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(str);
+    
+}
+joinPublic();
+</script>
+<?php
+    
+}
+else{
+    echo "<div class='w3-center w3-large w3-margin w3-padding'>Something went wrong</div>";
+}
+?>
+</body>
+</html>
+<?php
+                
+            }
+            else{
+                die("Something went wrong");
+            }
+        
+        }
+        else{
+            header("Location:../logout.php");
+        }
+    
+    }
+}
+else if(isset($_SESSION['login_user_connect_club'])){
+    echo "Please, login first";
+}
+else{
+    header("Location:../logout");   
+}
+    
+?>
