@@ -114,3 +114,121 @@ if(isset($_SESSION['login_user_connect_club']) && isset($_REQUEST['name'])){
         
         if($data1->num_rows <= 0){
             echo "<div class='w3-center w3-margin'>There is no pokification</div>";
+            $name = $_REQUEST['name'];
+?>
+<center><button class='kel-hover-2 w3-button w3-<?php echo $theme_color ?>' onclick = "location.replace('people?name=<?php echo $name ?>')">Click here to poke someone</button></center>
+<?php
+        }
+        else{
+        while($result1 = $data1->fetch_assoc()){
+            
+            if($result1['seen'] == '1'){
+                
+?>
+<tr class="w3-center w3-light-gray">
+    <td class=""><?php echo $result1['u_name'] ?> has poked you on <?php echo $result1['poke_time'] ?></td>
+    <td><button class="w3-button kel-hover-2 w3-<?php echo $theme_color ?>" 
+    onclick="poke(<?php echo $id ?>,<?php echo $result1['poker_id'] ?>, '<?php echo $result1['u_name'] ?>')"><i class="fa fa-hand-o-right"></i> Poke back</button></td>
+</tr>
+<?php
+            }
+            else{
+?>
+<tr class="w3-center w3-gray w3-text-white" style="cursor:pointer" onclick="pokedone(<?php echo $result1['poker_id'] ?>, <?php echo $id ?>, '<?php echo $result1['u_name'] ?>')">
+    <td class=""><?php echo $result1['u_name'] ?> has poked you on <?php echo $result1['poke_time'] ?></td>
+    <td><button class="w3-button kel-hover-2 w3-<?php echo $theme_color ?>" 
+    onclick="poke(<?php echo $id ?>, <?php echo $result1['poker_id'] ?>, '<?php echo $result1['u_name'] ?>')"><i class="fa fa-hand-o-right"></i> Poke back</button></td>
+</tr>
+<?php
+            }
+        }   
+        }
+    }
+    else{
+        echo "something went wrong";
+    }
+    
+?>
+</tbody>
+</table> 
+</div>
+</div>
+</div>
+
+<script src="Js/varified.js"></script>
+<script src="../Js/check.js"></script>
+<script>
+
+let poke = (poker_id, recever_id, user = "someone") => {
+    
+    let str = "poker_id="+poker_id+"&recever_id="+recever_id;
+    let xhttp = new XMLHttpRequest();
+    
+    xhttp.onreadystatechange = function() {
+    	
+    	if(this.readyState == 4 && this.status == 200){
+    		
+    		if(this.responseText == ""){
+    		    alert("You just poked "+user);
+    		}
+    	}
+    }
+    xhttp.open("POST", "Action/poke", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(str);
+    
+}
+
+let pokedone = (poker_id, recever_id, user = "someone") => {
+    
+    let str = "poker_id="+poker_id+"&recever_id="+recever_id;
+    let xhttp = new XMLHttpRequest();
+    
+    xhttp.onreadystatechange = function() {
+    	
+    	if(this.readyState == 4 && this.status == 200){
+    		
+    		if(this.responseText == ""){
+    		    alert("You just seen "+user+"\'s poke");
+    		    location.reload();
+    		}
+    	    
+    	}
+    }
+    xhttp.open("POST", "Action/pokedone", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(str);
+    
+}
+
+</script>
+
+</body>
+</html>
+<?php
+        }
+        else{
+           
+?>
+<!-- Notverified account area -->
+
+<?php
+            header("Location:../logout.php");
+        }
+        
+    }
+    else{
+        echo "Something went wrong, Please try again later"; 
+    }
+    
+    
+?>
+<?php
+    
+    $conn->close();
+}
+else{
+    header("Location:../logout"); 
+}
+
+?>
