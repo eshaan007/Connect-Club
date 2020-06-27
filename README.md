@@ -28,7 +28,12 @@ Steps to follow :
 ```
 Fork the Repository 
 Clone the Repository  
-Connect it with the Xampp Server and run it !
+Put thast cloned file in the htdocs folder of Xampp server
+Create database keltago4_Chat
+Import keltago4_Chat.sql in the same database
+Place the Database folder in the parent folder of htdocs
+Type 'localhost/Connect-Club' in your web browser 
+SignUp and you are good to go
 ```
 
 How other users can join your Xampp Local server : 
@@ -38,7 +43,7 @@ Main host has to write 'ipconfig' in Command Prompt.
 ipv4 address should be taken.
 Using this, other users can join the Connect-Club.
 ```
-Others, Can follow a simpler route by using the URL given below: 👉
+Others, Can follow a simpler route by using the URL given: 👉
 [Connect-Club](https://keltagoodlife.co/Connect-Club)
 
 ***SIGN UP AND ENJOY THE EXPERIENCE!***
